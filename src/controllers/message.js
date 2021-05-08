@@ -1,6 +1,8 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
+  // client headers
+  console.log(req.headers);
   res.send('Message list');
 });
 
