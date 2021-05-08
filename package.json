@@ -6,7 +6,14 @@
   "repository": "git remote add origin https://github.com/EliasMoura2/chat-api-node.git",
   "author": "Elias Moura",
   "license": "MIT",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
