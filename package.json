@@ -1,0 +1,12 @@
+{
+  "name": "chat-api-node",
+  "version": "1.0.0",
+  "description": "Chat API",
+  "main": "server.js",
+  "repository": "git remote add origin https://github.com/EliasMoura2/chat-api-node.git",
+  "author": "Elias Moura",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
