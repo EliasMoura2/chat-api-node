@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const response = require('../networks/response');
 
 router.get('/', (req, res) => {
   // client headers
@@ -8,14 +9,7 @@ router.get('/', (req, res) => {
   res.header({
     "custom-header": "Value custom"
   })
-
-  // respuesta vacia
-  // res.send(); // default status 200
-  res.status(200).send({
-    error: '',
-    body: '',
-    message: 'Examples list'
-  });
+  response.success(req, res, 200, 'Examples list');
 });
 
 router.post('/', (req, res) => {
@@ -26,11 +20,12 @@ router.post('/', (req, res) => {
 
   // Query
   console.log(req.query);
-  res.status(201).send({
-    error: '',
-    body: '',
-    message: 'Example created'
-  });
+
+  if(req.query.error === 'ok'){
+    return response.error(req, res, 400, 'Error simulado');
+  }
+
+  response.success(req, res, 201, 'Example created');
 });
 
 module.exports = router;
