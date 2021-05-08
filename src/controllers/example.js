@@ -8,7 +8,14 @@ router.get('/', (req, res) => {
   res.header({
     "custom-header": "Value custom"
   })
-  res.send('Examples list');
+
+  // respuesta vacia
+  // res.send(); // default status 200
+  res.status(200).send({
+    error: '',
+    body: '',
+    message: 'Examples list'
+  });
 });
 
 router.post('/', (req, res) => {
@@ -19,7 +26,11 @@ router.post('/', (req, res) => {
 
   // Query
   console.log(req.query);
-  res.send('Example created');
+  res.status(201).send({
+    error: '',
+    body: '',
+    message: 'Example created'
+  });
 });
 
 module.exports = router;
