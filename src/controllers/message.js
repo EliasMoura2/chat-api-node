@@ -10,6 +10,8 @@ router.post('/', (req, res) => {
   const { message, name } = req.body;
   console.log(message, name);
 
+  // Query
+  console.log(req.query);
   res.send('Message created')
 });
 
