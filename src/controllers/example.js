@@ -21,3 +21,5 @@ router.post('/', (req, res) => {
   console.log(req.query);
   res.send('Example created');
 });
+
+module.exports = router;
