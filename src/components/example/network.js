@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const response = require('../../networks/response');
 
-router.get('/examples', (req, res) => {
+router.get('/', (req, res) => {
   // client headers
   console.log(req.headers);
 
@@ -12,7 +12,7 @@ router.get('/examples', (req, res) => {
   response.success(req, res, 200, 'Examples list');
 });
 
-router.post('/examples', (req, res) => {
+router.post('/', (req, res) => {
   // Body
   console.log(req.body);
   const { message, name } = req.body;
@@ -28,7 +28,7 @@ router.post('/examples', (req, res) => {
   response.success(req, res, 201, 'Example created');
 });
 
-router.post('/examples/v2', (req, res) => {
+router.post('/v2', (req, res) => {
   try {
     if (req.query.error === 'ok') {
       throw new Error('Error simulado!');
