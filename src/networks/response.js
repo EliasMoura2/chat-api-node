@@ -1,13 +1,12 @@
-exports.success = (req, res, status, message, body = '') => {
+exports.success = (req, res, status, message) => {
   res.status(status).send({
-    message,
-    body,
+    message: message,
   });
 };
 
-exports.error = (req, res, status, message = '', error = '', body = '') => {
+exports.error = (req, res, status, message = '', details = '') => {
+  console.log(`[response error] - ${details}`);
   res.status(status).send({
     error: message,
-    body,
   });
 };
