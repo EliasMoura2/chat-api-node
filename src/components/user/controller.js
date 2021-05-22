@@ -8,8 +8,15 @@ const addUser = (name) => {
     firstname: name,
   }
   return store.add(user)
-}
+};
+
+const getUsers = () => {
+  return new Promise ((resolve, reject) => {
+    resolve(store.list())
+  })
+};
 
 module.exports = {
   addUser,
+  getUsers,
 }

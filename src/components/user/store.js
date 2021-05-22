@@ -13,6 +13,6 @@ const getAllUser = async () => {
 
 module.exports = {
   add: addUser,
-  getUsers: getAllUser,
+  list: getAllUser,
   // getUser: getAnUser,
 }
