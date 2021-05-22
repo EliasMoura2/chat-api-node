@@ -3,7 +3,8 @@ const response = require('../../networks/response');
 const controller = require('./controller');
 
 router.get('/', (req, res) => {
-    controller.getMessages()
+  const filterMessage = req.query.user || null;
+    controller.getMessages(filterMessage)
       .then((messageList) => response.success(req, res, 200, messageList))
       .catch(error => response.error(req, res, 500, 'Unexpected error', error.message))
 });

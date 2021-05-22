@@ -19,8 +19,12 @@ const persist = async (message) => {
   // return aMessage;
 };
 
-const getAll = async () => {
-  const messages = await Model.find();
+const getAll = async (filterUser) => {
+  let filter = {} 
+  if(filterUser !== null){
+    filter = { user: filterUser };
+  }
+  const messages = await Model.find(filter);
   return messages;
 };
 
