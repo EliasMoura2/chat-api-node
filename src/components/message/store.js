@@ -1,13 +1,13 @@
-const Model = require('./model')
+const Model = require('./model');
 
 
 // let list = [];
 
-const persist = async (message) => {
+const addMessage = async (message) => {
   // list.push(message);
   const newMessage = new Model(message);
   const aMessage = await newMessage.save();
-  // return aMessage;
+  return aMessage;
 };
 
 const getAll = async (filterUser) => {
@@ -35,7 +35,7 @@ const destroy = (id) => {
 };
 
 module.exports = {
-  add: persist,
+  add: addMessage,
   list: getAll,
   update: update,
   delete: destroy
