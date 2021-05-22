@@ -1,7 +1,10 @@
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
+const db = require('./config/db');
 const app = express();
+
+db(process.env.MONGODB_URI)
 
 // const routerExample = require('./components/example/network');
 // const routerMessage = require('./components/message/network');

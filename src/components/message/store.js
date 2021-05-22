@@ -1,15 +1,6 @@
-const db = require('mongoose');
 const Model = require('./model')
 
-// db.Promise = global.Promise
-db.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true
-})
-  .then((db) => console.log("DB is CONNECTED"))
-  .catch((err) => console.error(err));
-console.log('[db] Connected')
+
 // let list = [];
 
 const persist = async (message) => {
