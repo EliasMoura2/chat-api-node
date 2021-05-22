@@ -22,4 +22,12 @@ router.patch('/:id', (req, res) => {
     .catch(error => response.error(req, res, 500, 'Error interno', error))
 });
 
+router.delete('/:id', (req, res) => {
+  controller.deleteMessage(req.params.id)
+    .then(() => { 
+      response.success(req, res, 200, `Message ${req.params.id} eliminado`)
+    })
+    .catch( error => response.error(req, res, 500, `Error interno`, error))
+});
+
 module.exports = router;

@@ -37,9 +37,15 @@ const update = async (id, message) => {
   return messageUpdated;
 };
 
+const destroy = (id) => {
+  return Model.deleteOne({
+    _id: id
+  })
+};
+
 module.exports = {
   add: persist,
   list: getAll,
   update: update,
-  // delete
+  delete: destroy
 }
