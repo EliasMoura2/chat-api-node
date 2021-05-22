@@ -16,11 +16,12 @@ const persist = async (message) => {
   // list.push(message);
   const newMessage = new Model(message);
   const aMessage = await newMessage.save();
-  return aMessage;
+  // return aMessage;
 };
 
-const getAll = () => {
-  return list;
+const getAll = async () => {
+  const messages = await Model.find();
+  return messages;
 };
 
 module.exports = {
