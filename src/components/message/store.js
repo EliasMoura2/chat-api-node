@@ -24,10 +24,18 @@ const getAll = async () => {
   return messages;
 };
 
+const update = async (id, message) => {
+  // const message = Model.findById(id);
+  const foundMessage = await Model.findOne({_id: id});
+
+  foundMessage.message = message;
+  const messageUpdated = await foundMessage.save();
+  return messageUpdated;
+};
+
 module.exports = {
   add: persist,
   list: getAll,
-  // get
-  // update
+  update: update,
   // delete
 }

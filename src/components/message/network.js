@@ -15,4 +15,10 @@ router.post('/', async (req, res) => {
 
 });
 
+router.patch('/:id', (req, res) => {
+  controller.updateMessage(req.params.id, req.body.message)
+    .then(data => response.success(req, res, 200, data))
+    .catch(error => response.error(req, res, 500, 'Error interno', error))
+});
+
 module.exports = router;
