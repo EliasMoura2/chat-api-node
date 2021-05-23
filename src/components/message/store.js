@@ -25,7 +25,6 @@ const getAll = async (filterUser) => {
         }
         resolve(populated);
       })
-      // .catch(e => { reject(e)})
   })
 };
 
