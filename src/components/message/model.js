@@ -13,7 +13,8 @@ const messageSchema = new Schema({
     type: String,
     require: true
   },
-  date: Date
+  date: Date,
+  file: String,
 })
 
 module.exports =  model('Message', messageSchema);

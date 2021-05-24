@@ -4,7 +4,7 @@ const response = require('../../networks/response');
 const controller = require('./controller');
 
 const upload = multer({
-  dest: 'uploads/'
+  dest: 'public/files'
 })
 
 router.get('/', (req, res) => {
@@ -15,7 +15,8 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', upload.single('file'), async (req, res) => {
-    controller.addMessage(req.body.chat, req.body.user, req.body.message)
+    // console.log(req.file);
+    controller.addMessage(req.body.chat, req.body.user, req.body.message, req.file)
       .then((fullMessage) => response.success(req, res, 201, fullMessage))
       .catch( error => response.error(req, res, 400, 'Informacion inválida', error));
 
