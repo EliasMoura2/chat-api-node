@@ -1,6 +1,11 @@
 const router = require('express').Router();
+const multer = require('multer');
 const response = require('../../networks/response');
 const controller = require('./controller');
+
+const upload = multer({
+  dest: 'uploads/'
+})
 
 router.get('/', (req, res) => {
   const filterMessage = req.query.user || null;
@@ -9,8 +14,8 @@ router.get('/', (req, res) => {
       .catch(error => response.error(req, res, 500, 'Unexpected error', error.message))
 });
 
-router.post('/', async (req, res) => {
-    controller.addMessage(req.body.user, req.body.message)
+router.post('/', upload.single('file'), async (req, res) => {
+    controller.addMessage(req.body.chat, req.body.user, req.body.message)
       .then((fullMessage) => response.success(req, res, 201, fullMessage))
       .catch( error => response.error(req, res, 400, 'Informacion inválida', error));
 
