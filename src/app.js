@@ -5,15 +5,15 @@ const app = express();
 const server = require('http').Server(app);
 const socket = require('./socket');
 const cors = require('cors');
+const config = require('./config/config');
 
 const db = require('./config/db');
 
 const router = require('./networks/routes');
 
+db(config.dbUrl);
 
-db(process.env.MONGODB_URI);
-
-app.use(cors())
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended : false }));
 app.use(express.json());

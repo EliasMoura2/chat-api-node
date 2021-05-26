@@ -3,7 +3,6 @@ if(process.env.NODE_ENV !== 'production'){
 }
 
 const server = require('./app');
+const { port, host } = require('./config/config');
 
-const port = 5000;
-
-server.listen(port, () => console.log(`Server listening on port ${port}!`));
+server.listen(port, () => console.log(`Server listening on ${host}:${port}`));
