@@ -4,7 +4,7 @@ const response = require('../../networks/response');
 const controller = require('./controller');
 
 const upload = multer({
-  dest: 'public/files'
+  dest: './src/public/files'
 })
 
 router.get('/', (req, res) => {
